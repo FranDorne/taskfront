@@ -3,8 +3,6 @@ import { CreateTask, UpdateTask } from "../interface/task.interface";
 const URL = import.meta.env.VITE_API || "http://localhost:3000"
 const API = `${URL}/api`;
 
-export const getTasksRequest = async () => fetch(`${API}/tasks`);
-
 export const createTaskRequest = async (task: CreateTask) =>
   fetch(`${API}/tasks`, {
     method: "POST",
@@ -13,6 +11,9 @@ export const createTaskRequest = async (task: CreateTask) =>
       "Content-Type": "application/json",
     },
   });
+
+export const getTasksRequest = async () => fetch(`${API}/tasks`);
+
 
 export const deleteTaskRequest = async (id: string) =>
   fetch(`${API}/tasks/${id}`, {
